@@ -8,11 +8,19 @@
 
 <body>
 
+<div id="start">
+    <button onclick="startPage()">✨ Wejdź</button>
+</div>
+
+
+<div id="content" style="display:none;">
+
 <nav>
     <h2>Portfolio</h2>
 
     <div>
         <a href="#about">O mnie</a>
+        <a href="#skills">Umiejętności</a>
         <a href="#projects">Projekty</a>
         <a href="#contact">Kontakt</a>
     </div>
@@ -28,8 +36,21 @@
 </div>
 
 
+<div class="card" id="skills">
+    <h2>Umiejętności</h2>
+
+    <p>
+        🐍 Python<br>
+        🌐 HTML & CSS<br>
+        🐙 GitHub<br>
+        ⚙️ Tworzenie projektów
+    </p>
+</div>
+
+
 <div class="card" id="projects">
     <h2>Projekty</h2>
+
     <p>
         🌐 Strony WWW<br>
         🐍 Python<br>
@@ -40,15 +61,39 @@
 
 <div class="card" id="contact">
     <h2>Kontakt</h2>
+
     <p>
         GitHub: programista423
     </p>
 </div>
 
 
-<button onclick="alert('Działa! 🚀')">
-    Kliknij
-</button>
+</div>
+
+
+<div id="welcome"></div>
+
+
+<script>
+
+function startPage(){
+
+    document.getElementById("start").style.display = "none";
+
+    document.getElementById("welcome").innerHTML =
+    "<h1>Witaj w moim portfolio 🚀</h1>";
+
+    setTimeout(function(){
+
+        document.getElementById("welcome").style.display = "none";
+
+        document.getElementById("content").style.display = "block";
+
+    },2000);
+
+}
+
+</script>
 
 
 </body>
