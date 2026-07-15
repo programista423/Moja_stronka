@@ -1,31 +1,139 @@
-body {
-    background: #111;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 50px;
+body{
+
+margin:0;
+padding:20px;
+
+background:#080808;
+color:white;
+
+font-family:Arial;
+
+text-align:center;
+
+transition:0.5s;
+
 }
 
-h1 {
-    font-size: 50px;
+
+button{
+
+width:90%;
+max-width:350px;
+
+padding:15px;
+margin:8px;
+
+border-radius:20px;
+
+border:2px solid cyan;
+
+background:#111;
+
+color:white;
+
+font-size:18px;
+
+transition:0.3s;
+
 }
 
-.card {
-    background: #222;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 500px;
-    border-radius: 15px;
+
+button:hover{
+
+transform:scale(1.05);
+
+background:cyan;
+
+color:black;
+
 }
 
-button {
-    background: white;
-    color: black;
-    padding: 12px 25px;
-    border-radius: 10px;
-    cursor: pointer;
+
+
+.page{
+
+display:none;
+
+padding:25px;
+
+margin:20px;
+
+border-radius:25px;
+
+background:#151515;
+
+animation:show 0.5s;
+
 }
 
-button:hover {
-    transform: scale(1.05);
+
+
+@keyframes show{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+}
+
+}
+
+
+
+.light{
+
+background:white;
+
+color:black;
+
+}
+
+
+
+.light .page{
+
+background:#ddd;
+
+}
+
+
+
+.color{
+
+border-color:magenta;
+
+}
+
+
+
+#output{
+
+margin-top:30px;
+
+font-size:22px;
+
+color:cyan;
+
+}
+
+
+
+h1{
+
+font-size:40px;
+
+}
+
+
+@media(max-width:600px){
+
+h1{
+
+font-size:30px;
+
+}
+
 }
