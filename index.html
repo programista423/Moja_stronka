@@ -8,36 +8,47 @@
 
 <body>
 
-<div id="start">
-    <button onclick="startPage()">✨ Wejdź</button>
+<div id="home">
+
+    <h1>💻 Portfolio</h1>
+
+    <button onclick="showPage('about')">
+        👤 O mnie
+    </button>
+
+    <button onclick="showPage('skills')">
+        🧠 Umiejętności
+    </button>
+
+    <button onclick="showPage('projects')">
+        ⚙️ Projekty
+    </button>
+
+    <button onclick="showPage('contact')">
+        📩 Kontakt
+    </button>
+
 </div>
 
 
-<div id="content" style="display:none;">
+<div id="about" class="page">
 
-<nav>
-    <h2>Portfolio</h2>
+    <h1>👤 O mnie</h1>
 
-    <div>
-        <a href="#about">O mnie</a>
-        <a href="#skills">Umiejętności</a>
-        <a href="#projects">Projekty</a>
-        <a href="#contact">Kontakt</a>
-    </div>
-</nav>
-
-
-<div class="card" id="about">
-    <h2>O mnie</h2>
     <p>
-        Początkujący programista, który tworzy projekty
-        i uczy się nowych technologii.
+        Początkujący programista,
+        który tworzy projekty i uczy się nowych technologii.
     </p>
+
+    <button onclick="goHome()">⬅ Powrót</button>
+
 </div>
 
 
-<div class="card" id="skills">
-    <h2>Umiejętności</h2>
+
+<div id="skills" class="page">
+
+    <h1>🧠 Umiejętności</h1>
 
     <p>
         🐍 Python<br>
@@ -45,51 +56,65 @@
         🐙 GitHub<br>
         ⚙️ Tworzenie projektów
     </p>
+
+    <button onclick="goHome()">⬅ Powrót</button>
+
 </div>
 
 
-<div class="card" id="projects">
-    <h2>Projekty</h2>
+
+<div id="projects" class="page">
+
+    <h1>⚙️ Projekty</h1>
 
     <p>
         🌐 Strony WWW<br>
         🐍 Python<br>
-        ⚙️ Eksperymenty technologiczne
+        🔧 Eksperymenty technologiczne
     </p>
+
+    <button onclick="goHome()">⬅ Powrót</button>
+
 </div>
 
 
-<div class="card" id="contact">
-    <h2>Kontakt</h2>
+
+<div id="contact" class="page">
+
+    <h1>📩 Kontakt</h1>
 
     <p>
         GitHub: programista423
     </p>
+
+    <button onclick="goHome()">⬅ Powrót</button>
+
 </div>
 
-
-</div>
-
-
-<div id="welcome"></div>
 
 
 <script>
 
-function startPage(){
+function showPage(page){
 
-    document.getElementById("start").style.display = "none";
+    document.getElementById("home").style.display = "none";
 
-    document.getElementById("welcome").innerHTML =
-    "<h1>Witaj w moim portfolio 🚀</h1>";
+    document.querySelectorAll(".page").forEach(function(section){
+        section.style.display = "none";
+    });
 
-    setTimeout(function(){
+    document.getElementById(page).style.display = "block";
 
-        document.getElementById("welcome").style.display = "none";
+}
 
-        document.getElementById("content").style.display = "block";
 
-    },2000);
+function goHome(){
+
+    document.querySelectorAll(".page").forEach(function(section){
+        section.style.display = "none";
+    });
+
+    document.getElementById("home").style.display = "block";
 
 }
 
