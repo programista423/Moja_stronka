@@ -2,45 +2,182 @@
 <html>
 
 <head>
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+<title>Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #080808;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+
+#home {
+    padding: 50px 20px;
+}
+
+
+h1 {
+    font-size: 45px;
+}
+
+
+button {
+    width: 90%;
+    max-width: 350px;
+    padding: 18px;
+    margin: 10px;
+
+    background: #111;
+    color: white;
+
+    border: 2px solid #00ffff;
+    border-radius: 20px;
+
+    font-size: 20px;
+
+    transition: 0.3s;
+}
+
+
+button:hover {
+    transform: scale(1.08);
+    background: #00ffff;
+    color: black;
+}
+
+
+
+.page {
+
+    display:none;
+
+    margin:20px;
+
+    padding:25px;
+
+    background:rgba(255,255,255,0.08);
+
+    border-radius:25px;
+
+    animation: show 0.5s;
+
+}
+
+
+@keyframes show {
+
+from {
+opacity:0;
+transform:translateY(50px);
+}
+
+to {
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+
+
+.card {
+
+    margin:20px;
+
+}
+
+
+
+#secret {
+
+    margin-top:50px;
+    font-size:25px;
+    color:#00ffff;
+
+}
+
+
+
+@media(max-width:600px){
+
+h1 {
+    font-size:32px;
+}
+
+button {
+    font-size:18px;
+}
+
+.page {
+    padding:15px;
+}
+
+}
+
+
+</style>
+
 </head>
+
 
 <body>
 
+
 <div id="home">
 
-    <h1>💻 Portfolio</h1>
+<h1>💻 Portfolio</h1>
 
-    <button onclick="showPage('about')">
-        👤 O mnie
-    </button>
+<p>Witaj w moim projekcie 🚀</p>
 
-    <button onclick="showPage('skills')">
-        🧠 Umiejętności
-    </button>
 
-    <button onclick="showPage('projects')">
-        ⚙️ Projekty
-    </button>
+<button onclick="showPage('about')">
+👤 O mnie
+</button>
 
-    <button onclick="showPage('contact')">
-        📩 Kontakt
-    </button>
+
+<button onclick="showPage('skills')">
+🧠 Umiejętności
+</button>
+
+
+<button onclick="showPage('projects')">
+⚙️ Projekty
+</button>
+
+
+<button onclick="showPage('contact')">
+📩 Kontakt
+</button>
+
+
+<button onclick="secret()">
+✨ ?
+</button>
+
 
 </div>
 
 
+
 <div id="about" class="page">
 
-    <h1>👤 O mnie</h1>
+<h1>👤 O mnie</h1>
 
-    <p>
-        Początkujący programista,
-        który tworzy projekty i uczy się nowych technologii.
-    </p>
+<p>
+Początkujący programista.
+Tworzę projekty i uczę się nowych rzeczy.
+</p>
 
-    <button onclick="goHome()">⬅ Powrót</button>
+<button onclick="home()">⬅ Powrót</button>
 
 </div>
 
@@ -48,16 +185,17 @@
 
 <div id="skills" class="page">
 
-    <h1>🧠 Umiejętności</h1>
+<h1>🧠 Umiejętności</h1>
 
-    <p>
-        🐍 Python<br>
-        🌐 HTML & CSS<br>
-        🐙 GitHub<br>
-        ⚙️ Tworzenie projektów
-    </p>
+<p>
+🐍 Python<br>
+🌐 HTML<br>
+🎨 CSS<br>
+⚡ JavaScript<br>
+🐙 GitHub
+</p>
 
-    <button onclick="goHome()">⬅ Powrót</button>
+<button onclick="home()">⬅ Powrót</button>
 
 </div>
 
@@ -65,15 +203,15 @@
 
 <div id="projects" class="page">
 
-    <h1>⚙️ Projekty</h1>
+<h1>⚙️ Projekty</h1>
 
-    <p>
-        🌐 Strony WWW<br>
-        🐍 Python<br>
-        🔧 Eksperymenty technologiczne
-    </p>
+<p>
+🌐 Portfolio<br>
+🐍 Python projekty<br>
+🎮 Gry przeglądarkowe
+</p>
 
-    <button onclick="goHome()">⬅ Powrót</button>
+<button onclick="home()">⬅ Powrót</button>
 
 </div>
 
@@ -81,42 +219,62 @@
 
 <div id="contact" class="page">
 
-    <h1>📩 Kontakt</h1>
+<h1>📩 Kontakt</h1>
 
-    <p>
-        GitHub: programista423
-    </p>
+<p>
+GitHub: programista423
+</p>
 
-    <button onclick="goHome()">⬅ Powrót</button>
+<button onclick="home()">⬅ Powrót</button>
 
 </div>
 
 
 
+<div id="secret"></div>
+
+
+
 <script>
 
-function showPage(page){
 
-    document.getElementById("home").style.display = "none";
+function showPage(id){
 
-    document.querySelectorAll(".page").forEach(function(section){
-        section.style.display = "none";
-    });
+document.getElementById("home").style.display="none";
 
-    document.getElementById(page).style.display = "block";
+
+document.querySelectorAll(".page").forEach(x=>{
+x.style.display="none";
+});
+
+
+document.getElementById(id).style.display="block";
+
+}
+
+
+
+function home(){
+
+document.querySelectorAll(".page").forEach(x=>{
+x.style.display="none";
+});
+
+
+document.getElementById("home").style.display="block";
 
 }
 
 
-function goHome(){
 
-    document.querySelectorAll(".page").forEach(function(section){
-        section.style.display = "none";
-    });
+function secret(){
 
-    document.getElementById("home").style.display = "block";
+document.getElementById("secret").innerHTML =
+"🚀 SYSTEM ONLINE<br>Witaj, odkrywco kodu 😈";
 
 }
+
+
 
 </script>
 
