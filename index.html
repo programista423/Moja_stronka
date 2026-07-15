@@ -4,188 +4,54 @@
 <head>
 <title>Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    background: #080808;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-}
-
-
-#home {
-    padding: 50px 20px;
-}
-
-
-h1 {
-    font-size: 45px;
-}
-
-
-button {
-    width: 90%;
-    max-width: 350px;
-    padding: 18px;
-    margin: 10px;
-
-    background: #111;
-    color: white;
-
-    border: 2px solid #00ffff;
-    border-radius: 20px;
-
-    font-size: 20px;
-
-    transition: 0.3s;
-}
-
-
-button:hover {
-    transform: scale(1.08);
-    background: #00ffff;
-    color: black;
-}
-
-
-
-.page {
-
-    display:none;
-
-    margin:20px;
-
-    padding:25px;
-
-    background:rgba(255,255,255,0.08);
-
-    border-radius:25px;
-
-    animation: show 0.5s;
-
-}
-
-
-@keyframes show {
-
-from {
-opacity:0;
-transform:translateY(50px);
-}
-
-to {
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-
-
-.card {
-
-    margin:20px;
-
-}
-
-
-
-#secret {
-
-    margin-top:50px;
-    font-size:25px;
-    color:#00ffff;
-
-}
-
-
-
-@media(max-width:600px){
-
-h1 {
-    font-size:32px;
-}
-
-button {
-    font-size:18px;
-}
-
-.page {
-    padding:15px;
-}
-
-}
-
-
-</style>
-
+<link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-
-<div id="home">
-
+<div class="top">
 <h1>💻 Portfolio</h1>
+<p id="typing"></p>
+<p id="clock"></p>
 
-<p>Witaj w moim projekcie 🚀</p>
+<button onclick="theme()">🌙 Tryb</button>
+<button onclick="color()">🎨 Kolor</button>
 
-
-<button onclick="showPage('about')">
-👤 O mnie
-</button>
-
-
-<button onclick="showPage('skills')">
-🧠 Umiejętności
-</button>
+</div>
 
 
-<button onclick="showPage('projects')">
-⚙️ Projekty
-</button>
+<div id="menu">
 
+<button onclick="openPage('about')">👤 O mnie</button>
+<button onclick="openPage('skills')">🧠 Umiejętności</button>
+<button onclick="openPage('projects')">⚙️ Projekty</button>
+<button onclick="openPage('contact')">📩 Kontakt</button>
 
-<button onclick="showPage('contact')">
-📩 Kontakt
-</button>
-
-
-<button onclick="secret()">
-✨ ?
-</button>
-
+<button onclick="randomFact()">🎲 Ciekawostka</button>
+<button onclick="terminal()">🖥️ Terminal</button>
 
 </div>
 
 
 
-<div id="about" class="page">
+<div class="page" id="about">
 
-<h1>👤 O mnie</h1>
+<h2>👤 O mnie</h2>
 
 <p>
-Początkujący programista.
-Tworzę projekty i uczę się nowych rzeczy.
+Tworzę projekty, uczę się programowania
+i testuję nowe technologie.
 </p>
 
-<button onclick="home()">⬅ Powrót</button>
+<button onclick="back()">⬅ Powrót</button>
 
 </div>
 
 
 
-<div id="skills" class="page">
+<div class="page" id="skills">
 
-<h1>🧠 Umiejętności</h1>
+<h2>🧠 Umiejętności</h2>
 
 <p>
 🐍 Python<br>
@@ -195,89 +61,47 @@ Tworzę projekty i uczę się nowych rzeczy.
 🐙 GitHub
 </p>
 
-<button onclick="home()">⬅ Powrót</button>
+<button onclick="back()">⬅ Powrót</button>
 
 </div>
 
 
 
-<div id="projects" class="page">
+<div class="page" id="projects">
 
-<h1>⚙️ Projekty</h1>
+<h2>⚙️ Projekty</h2>
 
 <p>
 🌐 Portfolio<br>
-🐍 Python projekty<br>
-🎮 Gry przeglądarkowe
+🎮 Gry przeglądarkowe<br>
+🐍 Python projekty
 </p>
 
-<button onclick="home()">⬅ Powrót</button>
+<button onclick="back()">⬅ Powrót</button>
 
 </div>
 
 
 
-<div id="contact" class="page">
+<div class="page" id="contact">
 
-<h1>📩 Kontakt</h1>
+<h2>📩 Kontakt</h2>
 
 <p>
 GitHub: programista423
 </p>
 
-<button onclick="home()">⬅ Powrót</button>
+<button onclick="back()">⬅ Powrót</button>
 
 </div>
 
 
 
-<div id="secret"></div>
+<div id="output"></div>
 
 
 
-<script>
-
-
-function showPage(id){
-
-document.getElementById("home").style.display="none";
-
-
-document.querySelectorAll(".page").forEach(x=>{
-x.style.display="none";
-});
-
-
-document.getElementById(id).style.display="block";
-
-}
-
-
-
-function home(){
-
-document.querySelectorAll(".page").forEach(x=>{
-x.style.display="none";
-});
-
-
-document.getElementById("home").style.display="block";
-
-}
-
-
-
-function secret(){
-
-document.getElementById("secret").innerHTML =
-"🚀 SYSTEM ONLINE<br>Witaj, odkrywco kodu 😈";
-
-}
-
-
-
-</script>
-
+<script src="script.js"></script>
 
 </body>
 
